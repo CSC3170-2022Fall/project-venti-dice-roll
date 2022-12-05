@@ -18,9 +18,9 @@ Our team consists of the following members, listed in the table below (the team 
 
 | Student ID | Student Name   | GitHub Account (in Email)   | GiHub Username |
 | ---------- | -------------- | --------------------------  | -------------- |
-| 123010245  | Jose Andreas🚩 | 119010501@link.cuhk.edu.cn  |  119010501     |
+| 119010501  | Jose Andreas🚩 | 119010501@link.cuhk.edu.cn  |  119010501     |
 | 120090895  | Xu Zijie       | kafka576890@gmail.com       |   Faria-34     |
-| 119010459  | Zhao Qichen    |                             |                |
+| 119010459  | Zhao Qichen    | 119010459zqc@gmail.com      |  VictorZhao730 |
 | 120090778  | Wang Yue       | 120090778@link.cuhk.edu.cn  |   120090778    |
 | 119010381  | Yang Rui       | 1667724787@qq.com           |   RayandRain   |
 | 120090842  | Chen Yanxi     | 120090842@link.cuhk.edu.cn  |   NoiseHacker  |
@@ -35,8 +35,12 @@ After thorough discussion, our team made the choice and the specification inform
 - Our branch choice is: **Branch 1**
 - The difficulty level is: **Normal**
 
-As for Option 2, our topic background specification can be found in [background-specification.md](background-specification.md).
 
 ## Project Abstract
+Our group is going to choose these functionalities:
+- Register the package information that is released by some consumer
+- Allow the consumer to appoint some plant for some package manually
 
-<!-- TODO -->
+Our group gonna pick additional ones as follow:
+- Geometrical Constraint
+- Centralized Banking System.
