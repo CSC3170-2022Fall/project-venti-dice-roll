@@ -16,12 +16,13 @@ USE `firm`;
 -- -----------------------------------------------------
 create table consumer(
     CONSUMER_ID int,
-    PHONE_NUMBER varchar(25) not null,
-    ADDRESS varchar(25),
-    NAME varchar(25),
+    PHONE_NUMBER varchar(30) not null,
+    ADDRESS varchar(30),
+    NAME varchar(30),
     PACKAGE_ID int,
 
     primary key(CONSUMER_ID),
+    foreign key(PACKAGE_ID),
 );
 
 -- -----------------------------------------------------
@@ -35,14 +36,21 @@ create table package(
     content varchar(30),
 
     primary key(PACKAGE_ID),
+    foreign key(CONSUMER_ID, PLANT_ID, CHIP_ID),
 );
 
--- -----------------------------------------------------
--- Create multivalued `content` here
--- -----------------------------------------------------
+-- Create multivalue `content` here
 create table content(
+    PACKAGE_ID int,
     CHIP_ID int,
-    
+
+    primary key(PACKAGE_ID),
+);
+
+-- Create multivalue `producer` here
+create table producer(
+    PACKAGE_ID int,
+    PLANT_ID int,
 
     primary key(PACKAGE_ID),
 );
@@ -58,6 +66,7 @@ create table plant(
     MACHINE_NUM int,
 
     primary key(PLANT_ID),
+    foreign key (MACHINE_TYPE_ID),
 );
 
 -- -----------------------------------------------------
@@ -65,11 +74,13 @@ create table plant(
 -- -----------------------------------------------------
 create table machine_type(
     MACHINE_TYPE_ID int,
-    OPERATION_TYPE varchar(30),
+    OPERATION_TYPE_ID int,
     EXECUTE_TIME int,
     COST int,
 
     primary key(MACHINE_TYPE_ID),
+    foreign key(OPERATION_TYPE_ID),
+
 );
 
 -- -----------------------------------------------------
@@ -80,10 +91,12 @@ create table machine(
     MACHINE_TYPE_ID int,
     OPERATION_ID int,
     CHIP_ID int,
-    RECORD_ID int,
     PLANT_ID int
 
     primary key(MACHINE_ID),
+    foreign key(MACHINE_TYPE_ID, OPERATION_ID,
+                CHIP_ID, PLANT_ID),
+
 );
 
 -- -----------------------------------------------------
@@ -91,8 +104,19 @@ create table machine(
 -- -----------------------------------------------------
 create table chip_type(
     CHIP_TYPE_ID int,
+    NUMBER int,
+    PRECEDENCY varchar(30),
+    OPERATION_TYPE_ID int,
 
     primary key(CHIP_TYPE_ID),
+    foreign key(OPERATION_TYPE_ID),
+);
+
+create table order(
+    ORDER_ID int,
+    PRODUCE_PROGRESS varchar(50),
+
+    primary key(ORDER_ID),
 );
 
 
@@ -103,17 +127,33 @@ create table chip(
     CHIP_ID int,
     CHIP_TYPE_ID int,
 
-    primary key(CHIP),
+    primary key(CHIP_ID),
+    foreign key(CHIP_TYPE_ID),
+);
+
+create table producer(
+    CHIP_ID int,
+    PLANT_ID int,
+
+    primary key(CHIP_ID),
+);
+
+create table maker(
+    CHIP_ID int,
+    MACHINE_ID int,
+
+    primary key(CHIP_ID),
 );
 
 -- -----------------------------------------------------
--- Create entity `operation type` here
+-- Create entity `operation_type` here
 -- -----------------------------------------------------
 create table operation_type(
     OPERATION_TYPE_ID int,
     MACHINE_TYPE_ID int,
 
     primary key(OPERATION_TYPE_ID),
+    foreign key(MACHINE_TYPE_ID),
 );
 
 -- -----------------------------------------------------
@@ -122,24 +162,23 @@ create table operation_type(
 create table operation(
     OPERATION_ID int,
     OPERATION_TYPE_ID int,
-    RECORD_ID int,
     MACHINE_ID int,
 
     primary key(OPERATION_ID),
+    foreign key(OPERATION_TYPE_ID, MACHINE_ID),
 );
 
 -- -----------------------------------------------------
 -- Create relationship `processing_record` here
 -- -----------------------------------------------------
 create table processing_record(
-    RECORD_ID int,
+    MACHINE_ID int,
+    OPERATION_ID int,
     START_TIME varchar(30),
     END_TIME varchar(30),
-    OPERATION_ID int,
     EXPENSE int,
-    MACHINE_ID int,
 
-    primary key(RECORD_ID),
+    primary key(MACHINE_ID, OPERATION_ID),
 );
 
 
