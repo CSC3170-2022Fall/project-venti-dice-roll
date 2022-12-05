@@ -16,13 +16,14 @@ Our team consists of the following members, listed in the table below (the team 
 
 <!-- change the info below to be the real case -->
 
-| Student ID | Student Name | GitHub Account (in Email) |
-| ---------- | ------------ | ------------------------- |
-| 123010245  | 张三 🚩      | sanzhang@gmail.com        |
-| 123010345  | 李四         | sili@outlook.com          |
-| 123030245  | 王五         | wuwang@foxmail.com        |
-| 123020245  | 陈六         | liuchen@qq.com            |
-| 123010249  | 朱九         | jiuzhu@163.com            |
+| Student ID | Student Name   | GitHub Account (in Email)   | GiHub Username |
+| ---------- | -------------- | --------------------------  | -------------- |
+| 123010245  | Jose Andreas🚩 | 119010501@link.cuhk.edu.cn  |  119010501     |
+| 120090895  | Xu Zijie       | kafka576890@gmail.com       |   Faria-34     |
+| 119010459  | Zhao Qichen    |                             |                |
+| 120090778  | Wang Yue       | 120090778@link.cuhk.edu.cn  |   120090778    |
+| 119010381  | Yang Rui       | 1667724787@qq.com           |   RayandRain   |
+| 120090842  | Chen Yanxi     | 120090842@link.cuhk.edu.cn  |   NoiseHacker  |
 
 ## Project Specification
 
