@@ -43,4 +43,3 @@ Our group is going to choose these functionalities:
 
 Our group gonna pick additional ones as follow:
 - Geometrical Constraint
-- Centralized Banking System.
