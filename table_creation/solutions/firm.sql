@@ -16,13 +16,13 @@ USE `firm`;
 -- -----------------------------------------------------
 create table consumer(
     CONSUMER_ID int,
+    PLANT_ID int not null,
     PHONE_NUMBER varchar(30) not null,
-    ADDRESS varchar(30),
-    NAME varchar(30),
-    PACKAGE_ID int,
+    ADDRESS varchar(30) not null,
+    `NAME` varchar(30) not null,
 
     primary key(CONSUMER_ID),
-    foreign key(PACKAGE_ID),
+    foreign key(PLANT_ID) references plant
 );
 
 -- -----------------------------------------------------
@@ -33,26 +33,9 @@ create table package(
     CONSUMER_ID int,
     BUDGET int,
     OVERALL_TIME varchar(30),
-    content varchar(30),
 
     primary key(PACKAGE_ID),
-    foreign key(CONSUMER_ID, PLANT_ID, CHIP_ID),
-);
-
--- Create multivalue `content` here
-create table content(
-    PACKAGE_ID int,
-    CHIP_ID int,
-
-    primary key(PACKAGE_ID),
-);
-
--- Create multivalue `producer` here
-create table producer(
-    PACKAGE_ID int,
-    PLANT_ID int,
-
-    primary key(PACKAGE_ID),
+    foreign key(CONSUMER_ID) references consumer
 );
 
 
@@ -61,12 +44,9 @@ create table producer(
 -- -----------------------------------------------------
 create table plant(
     PLANT_ID int,
-    PLANT_LOCATION varchar(30),
-    MACHINE_TYPE_ID int,
-    MACHINE_NUM int,
+    LOCATION_ID varchar(30),
 
-    primary key(PLANT_ID),
-    foreign key (MACHINE_TYPE_ID),
+    primary key(PLANT_ID)
 );
 
 -- -----------------------------------------------------
@@ -77,9 +57,10 @@ create table machine_type(
     OPERATION_TYPE_ID int,
     EXECUTE_TIME int,
     COST int,
+    FEASIBILITY bool,
 
     primary key(MACHINE_TYPE_ID),
-    foreign key(OPERATION_TYPE_ID),
+    foreign key(OPERATION_TYPE_ID) references operation_type
 
 );
 
@@ -89,14 +70,11 @@ create table machine_type(
 create table machine(
     MACHINE_ID int,
     MACHINE_TYPE_ID int,
-    OPERATION_ID int,
-    CHIP_ID int,
-    PLANT_ID int
+    PLANT_ID int,
 
     primary key(MACHINE_ID),
-    foreign key(MACHINE_TYPE_ID, OPERATION_ID,
-                CHIP_ID, PLANT_ID),
-
+    foreign key(PLANT_ID) references plant
+    
 );
 
 -- -----------------------------------------------------
@@ -104,19 +82,8 @@ create table machine(
 -- -----------------------------------------------------
 create table chip_type(
     CHIP_TYPE_ID int,
-    NUMBER int,
-    PRECEDENCY varchar(30),
-    OPERATION_TYPE_ID int,
 
-    primary key(CHIP_TYPE_ID),
-    foreign key(OPERATION_TYPE_ID),
-);
-
-create table order(
-    ORDER_ID int,
-    PRODUCE_PROGRESS varchar(50),
-
-    primary key(ORDER_ID),
+    primary key(CHIP_TYPE_ID)
 );
 
 
@@ -126,23 +93,16 @@ create table order(
 create table chip(
     CHIP_ID int,
     CHIP_TYPE_ID int,
+    PLANT_ID int not null,
+    MACHINE_ID int not null,
+    PACKAGE_ID int not null,
 
     primary key(CHIP_ID),
-    foreign key(CHIP_TYPE_ID),
-);
-
-create table producer(
-    CHIP_ID int,
-    PLANT_ID int,
-
-    primary key(CHIP_ID),
-);
-
-create table maker(
-    CHIP_ID int,
-    MACHINE_ID int,
-
-    primary key(CHIP_ID),
+    foreign key(CHIP_TYPE_ID) references CHIP_TYPE,
+    foreign key(PLANT_ID) references plant,
+    foreign key(MACHINE_ID) references machine,
+    foreign key(PACKAGE_ID) references package
+    
 );
 
 -- -----------------------------------------------------
@@ -150,10 +110,9 @@ create table maker(
 -- -----------------------------------------------------
 create table operation_type(
     OPERATION_TYPE_ID int,
-    MACHINE_TYPE_ID int,
 
-    primary key(OPERATION_TYPE_ID),
-    foreign key(MACHINE_TYPE_ID),
+    primary key(OPERATION_TYPE_ID)
+    
 );
 
 -- -----------------------------------------------------
@@ -162,10 +121,10 @@ create table operation_type(
 create table operation(
     OPERATION_ID int,
     OPERATION_TYPE_ID int,
-    MACHINE_ID int,
 
     primary key(OPERATION_ID),
-    foreign key(OPERATION_TYPE_ID, MACHINE_ID),
+    foreign key(OPERATION_TYPE_ID) references operation_type
+    
 );
 
 -- -----------------------------------------------------
@@ -179,9 +138,21 @@ create table processing_record(
     EXPENSE int,
 
     primary key(MACHINE_ID, OPERATION_ID),
+    foreign key(MACHINE_ID) references machine,
+    foreign key(OPERATION_ID) references operation
+    
 );
 
-
+-- -----------------------------------------------------
+-- Create relationship `produce_order here
+-- -----------------------------------------------------
+create table produce_order(
+	ORDER_NUMBER int,
+    PERDENCY_OPERATION_ID int,
+    OPERATION_TYPE_ID int
+    
+);
+    
 
 -- -----------------------------------------------------
 -- Recover Meta Data
