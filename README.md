@@ -43,3 +43,18 @@ Our group is going to choose these functionalities:
 
 Our group gonna pick additional ones as follow:
 - Geometrical Constraint
+## Database ER diagram
+   ![the ER diagram](ER_graph.png)
+## Relation Schema
+Consumer (<u>consumer_id</u>, supplier{plant_id}, phone_number, address, name)</p>
+Package (<u>package_id</u>, consumer_id, budget, overall_time)</p>
+Plant (<u>plant_id</u>, location_id)</p>
+Machine (<u>machine_id</u>, machine_type_id, plant_id)</p>
+Machine_type (<u>machine_type_id</u>, operation_type_id, excute_time, cost, feasibility)</p>
+Chip (<u>chip_id</u>, chip_type_id, producers{plant_id}, makers{machine_id}, package_id)</p>
+Chip_type (<u>chip_type_id</u>)</p>
+Operation (<u>operation_id, operation_type_id</u>)</p>
+Processing_record (<u>machine_id</u>, <u>operation_id</u>， start_time, end_time, expense)</p>
+Operation_type (<u>operation_type_id</u>)</p>
+Location (<u>location_id</u>, …….)</p>
+Produce_order (<u>order_number</u>, <u>perdency_operation_id</u>, <u>operation_type_id</u>)</p>
