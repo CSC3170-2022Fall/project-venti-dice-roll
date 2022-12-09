@@ -10,7 +10,7 @@ HOST = 'localhost'
 PORT = 3306
 USER = 'root'
 PASSWORD = 'root'
-DB = 'as2'
+DB = 'firm'
 CLIENT_FLAG = CLIENT.MULTI_STATEMENTS
 SOLUTIONS_PATH = '../solutions/'
 TESTCASE_PATH = '../test_cases/'
@@ -24,8 +24,8 @@ def link(use_db: bool=True):
                       db=DB if use_db else None, 
                       client_flag=CLIENT_FLAG)
 
-def get_sql(question_id: int):
-    f_path = os.path.join(SOLUTIONS_PATH, str(question_id)+'.sql')
+def get_sql(name: str):
+    f_path = os.path.join(SOLUTIONS_PATH, str(name)+'.sql')
     with open(f_path, 'r', encoding='utf-8') as f:
         result = f.read()
     return result
