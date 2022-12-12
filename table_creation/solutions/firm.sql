@@ -161,12 +161,13 @@ create table produce_order(
 -- -----------------------------------------------------
 create table locations(
     LOCATION_ID varchar(30),
-    DISTANCE int not null,
+    LOCATION_X numeric(7,2),
+    LOCATION_Y numeric(7,2),
     
     primary key(LOCATION_ID),
     
 );
-    
+
 
 -- -----------------------------------------------------
 -- Recover Meta Data
