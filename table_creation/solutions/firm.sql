@@ -12,19 +12,43 @@ CREATE SCHEMA IF NOT EXISTS `firm` DEFAULT CHARACTER SET utf8;
 USE `firm`;
 
 -- -----------------------------------------------------
+-- Create entity `locations` here
+-- -----------------------------------------------------
+create table locations(
+    LOCATION_ID varchar(30),
+    LOCATION_X numeric(7,2),
+    LOCATION_Y numeric(7,2),
+    
+    primary key(LOCATION_ID)
+    
+);
+
+-- -----------------------------------------------------
+-- Create entity `plant` here
+-- -----------------------------------------------------
+create table plant(
+    PLANT_ID int,
+    LOCATION_ID varchar(30),
+
+    primary key(PLANT_ID),
+    foreign key(LOCATION_ID) references locations(LOCATION_ID)
+);
+
+
+-- -----------------------------------------------------
 -- Create entity `consumer` here
 -- -----------------------------------------------------
 create table consumer(
     CONSUMER_ID int,
     PLANT_ID int not null,
     PHONE_NUMBER varchar(30) not null,
-    'ADDRESS' varchar(30) not null,
+    `ADDRESS` varchar(30) not null,
     `NAME` varchar(30) not null,
     LOCATION_ID varchar(30),
 
     primary key(CONSUMER_ID),
-    foreign key(PLANT_ID) references plant,
-    foreign key(LOCATION_ID) references locations,
+    foreign key(PLANT_ID) references plant(PLANT_ID),
+    foreign key(LOCATION_ID) references locations(LOCATION_ID)
 );
 
 -- -----------------------------------------------------
@@ -37,19 +61,17 @@ create table package(
     OVERALL_TIME varchar(30),
 
     primary key(PACKAGE_ID),
-    foreign key(CONSUMER_ID) references consumer,
+    foreign key(CONSUMER_ID) references consumer(CONSUMER_ID)
 );
 
-
 -- -----------------------------------------------------
--- Create entity `plant` here
+-- Create entity `operation_type` here
 -- -----------------------------------------------------
-create table plant(
-    PLANT_ID int,
-    LOCATION_ID varchar(30),
+create table operation_type(
+    OPERATION_TYPE_ID int,
 
-    primary key(PLANT_ID),
-    foreign key(LOCATION_ID) references locations,
+    primary key(OPERATION_TYPE_ID)
+    
 );
 
 -- -----------------------------------------------------
@@ -63,7 +85,7 @@ create table machine_type(
     FEASIBILITY boolean,
 
     primary key(MACHINE_TYPE_ID),
-    foreign key(OPERATION_TYPE_ID) references operation_type,
+    foreign key(OPERATION_TYPE_ID) references operation_type(OPERATION_TYPE_ID)
 
 );
 
@@ -76,7 +98,7 @@ create table machine(
     PLANT_ID int,
 
     primary key(MACHINE_ID),
-    foreign key(PLANT_ID) references plant,
+    foreign key(PLANT_ID) references plant(PLANT_ID)
     
 );
 
@@ -86,7 +108,7 @@ create table machine(
 create table chip_type(
     CHIP_TYPE_ID int,
 
-    primary key(CHIP_TYPE_ID),
+    primary key(CHIP_TYPE_ID)
 );
 
 
@@ -101,22 +123,13 @@ create table chip(
     PACKAGE_ID int not null,
 
     primary key(CHIP_ID),
-    foreign key(CHIP_TYPE_ID) references chip_type,
-    foreign key(PLANT_ID) references plant,
-    foreign key(MACHINE_ID) references machine,
-    foreign key(PACKAGE_ID) references package,
+    foreign key(CHIP_TYPE_ID) references chip_type(CHIP_TYPE_ID),
+    foreign key(PLANT_ID) references plant(PLANT_ID),
+    foreign key(MACHINE_ID) references machine(MACHINE_ID),
+    foreign key(PACKAGE_ID) references package(PACKAGE_ID)
     
 );
 
--- -----------------------------------------------------
--- Create entity `operation_type` here
--- -----------------------------------------------------
-create table operation_type(
-    OPERATION_TYPE_ID int,
-
-    primary key(OPERATION_TYPE_ID),
-    
-);
 
 -- -----------------------------------------------------
 -- Create entity `operation` here
@@ -126,7 +139,7 @@ create table operation(
     OPERATION_TYPE_ID int,
 
     primary key(OPERATION_ID),
-    foreign key(OPERATION_TYPE_ID) references operation_type,
+    foreign key(OPERATION_TYPE_ID) references operation_type(OPERATION_TYPE_ID)
     
 );
 
@@ -141,8 +154,8 @@ create table processing_record(
     EXPENSE int,
 
     primary key(MACHINE_ID, OPERATION_ID),
-    foreign key(MACHINE_ID) references machine,
-    foreign key(OPERATION_ID) references operation,
+    foreign key(MACHINE_ID) references machine(MACHINE_ID),
+    foreign key(OPERATION_ID) references operation(OPERATION_ID)
     
 );
 
@@ -152,22 +165,9 @@ create table processing_record(
 create table produce_order(
 	ORDER_NUMBER int,
     PERDENCY_OPERATION_ID int,
-    OPERATION_TYPE_ID int,
+    OPERATION_TYPE_ID int
     
 );
-
--- -----------------------------------------------------
--- Create entity `locations` here
--- -----------------------------------------------------
-create table locations(
-    LOCATION_ID varchar(30),
-    LOCATION_X numeric(7,2),
-    LOCATION_Y numeric(7,2),
-    
-    primary key(LOCATION_ID),
-    
-);
-
 
 -- -----------------------------------------------------
 -- Recover Meta Data
