@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chip Order Website</title>
+    <script src="../static/script.js"></script>
+    <style>
+        html {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        body {
+            background: #FFFFFF;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        #btn_add{
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Register</h1>
+<form action="http://127.0.0.1:5000" method="post">
+    <p>Consumer name <input type="text" placeholder="Please input your name" name="username"/></p>
+
+    <p>Phone number <input type="text" placeholder="Please input your phone" name="phonenum"/></p>
+
+    <p>Address <select id="address" name="address">
+        <option>AAA</option>
+        <option>BBB</option>
+        <option>CCC</option>
+    </select>
+    </p>
+
+
+    <div id="chip" name="chip">
+        <p>Chip Type: A1 </p>
+        <p>Company <select id="company" name="company_a1">
+            <!-- <option>A111 </option>
+            <option>B2222</option>
+            <option>C3333</option> -->
+        </select></p>
+        <p>Number <input type="text" placeholder="Please Chip number" name="chip_num_a1"/></p>
+    </div>
+
+    <div id="chip" name="chip">
+        <p>Chip Type: B2 </p>
+        <p>Company <select id="company" name="company_b2">
+            <!-- <option>A111 </option>
+            <option>B2222</option>
+            <option>C3333</option> -->
+        </select></p>
+        <p>Number <input type="text" placeholder="Please Chip number" name="chip_num_b2"/></p>
+    </div>
+
+    <div id="chip" name="chip">
+        <p>Chip Type: C3 </p>
+        <p>Company <select id="company" name="company_c3">
+            <!-- <option>A111 </option>
+            <option>B2222</option>
+            <option>C3333</option> -->
+        </select></p>
+        <p>Number <input type="text" placeholder="Please Chip number" name="chip_num_c3"/></p>
+    </div>
+
+    <div id="Chip_order"></div>
+
+    <button type="submit" name="btn_register"> submit</button>
+</form>
+
+
+</body>
+
+</html>
