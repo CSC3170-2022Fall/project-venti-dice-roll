@@ -48,22 +48,28 @@ We break the project into three parts. First, we draw the ER diagram and the rel
 The main component of the project is in the document flaskProject. The sql program firm.sql will construct the database and the python program app.py will construct the website. Besides, the sql program data_generation.sql can insert random data into the database.</p>
 ### ER diagram
    ![the ER diagram](ER_graph.png)
-### Relation Schema
-Consumer (<u>consumer_id</u>, supplier{plant_id}, phone_number, address, name)</p>
-Package (<u>package_id</u>, consumer_id, budget, overall_time)</p>
-Plant (<u>plant_id</u>, location_id)</p>
-Machine (<u>machine_id</u>, machine_type_id, plant_id)</p>
-Machine_type (<u>machine_type_id</u>, operation_type_id, excute_time, cost, feasibility)</p>
-Chip (<u>chip_id</u>, chip_type_id, producers{plant_id}, makers{machine_id}, package_id)</p>
-Chip_type (<u>chip_type_id</u>)</p>
-Operation (<u>operation_id, operation_type_id</u>)</p>
-Processing_record (<u>machine_id</u>, <u>operation_id</u>， start_time, end_time, expense)</p>
-Operation_type (<u>operation_type_id</u>)</p>
-Location (<u>location_id</u>, …….)</p>
-Produce_order (<u>order_number</u>, <u>perdency_operation_id</u>, <u>operation_type_id</u>)</p>
 ## Historical Progress
+- Draw the ER diagram and the relational schema
+- Construct the database
+- Generate random data
+- Construct the website
 ## Functionality Implementation
 ### Database
+The database is constructed using sql language according to the relational schema.</p>
+For example, the entity locations will be created like this:
+```
+  create table locations(
+    LOCATION_ID varchar(30),
+    LOCATION_X numeric(7,2),
+    LOCATION_Y numeric(7,2),
+    primary key(LOCATION_ID)  
+);
+```
+After genarating random data, the data will be inserted into the database like this:
+```
+INSERT INTO locations (LOCATION_ID, LOCATION_X, LOCATION_Y)
+VALUES ('A', 5, 5);
+```
 ### Website
 #### Introduction:
 This website is for consumers to buy chips. It can be composed to 2 parts. The first part asks for the consumer’s information. The other is information about chip. 
