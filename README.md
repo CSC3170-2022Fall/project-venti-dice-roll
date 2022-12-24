@@ -43,9 +43,11 @@ Our group is going to choose these functionalities:
 
 Our group gonna pick additional ones as follow:
 - Geometrical Constraint
-## Database ER diagram
+## Program Design
+
+### Database ER diagram
    ![the ER diagram](ER_graph.png)
-## Relation Schema
+### Relation Schema
 Consumer (<u>consumer_id</u>, supplier{plant_id}, phone_number, address, name)</p>
 Package (<u>package_id</u>, consumer_id, budget, overall_time)</p>
 Plant (<u>plant_id</u>, location_id)</p>
@@ -58,3 +60,23 @@ Processing_record (<u>machine_id</u>, <u>operation_id</u>， start_time, end_tim
 Operation_type (<u>operation_type_id</u>)</p>
 Location (<u>location_id</u>, …….)</p>
 Produce_order (<u>order_number</u>, <u>perdency_operation_id</u>, <u>operation_type_id</u>)</p>
+## Historical Progress
+## Functionality Implementation
+### Database
+### Website
+#### Introduction:
+This website is for consumers to buy chips. It can be composed to 2 parts. The first part asks for the consumer’s information. The other is information about chip. 
+#### Procedure:
+1. Consumers should assign their names, phone number and address firstly. Once they change their address, the program would produce names of companies which produce chips in the next part.
+2. Consumer can choose companies’ names and number of chips in the second part of form.
+3. After all, consumers click the submit button to input data in database.  
+#### Function Implementation:
+1. We use the function addeventlistener() to check if the address has changed. Once the address is changed, the program will ask for the value of new address and push names of nearby companies into value_list. Every value in the list will be imported to different options then append to each company select lists.
+2. Code part: App.py: This code imports pymysql and flask to realize its function. It contains a function called index. This function is used to connect with index.html and chip.html. This function first connects the local database(firm), then uses post to get the data from index.html. This code is running on http://127.0.0.1:5000. To connect with this code, we use the form function and let its action equals http://127.0.0.1:5000 in the index.html file. Then, it uses pymysql to store data in the table. When the function finish, return chip.html.
+## Contribution
+1. ER Diagram and Relation Schema: Wang Yue and Xu Zijie
+2. Database: Chen Yanxi and Jose Andreas
+3. Generate Random data: Zhao Qichen
+4. Website: Wang Yue and Xu Zijie
+5. Report: Wang Yue and Xu Zijie(the website part), Yang Rui(other part and integration)
+6. Presentation: Zhao Qichen, Chen Yanxi and Jose Andreas
