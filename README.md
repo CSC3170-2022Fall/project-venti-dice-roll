@@ -44,8 +44,9 @@ Our group is going to choose these functionalities:
 Our group gonna pick additional ones as follow:
 - Geometrical Constraint
 ## Program Design
-
-### Database ER diagram
+We break the project into three parts. First, we draw the ER diagram and the relation schema. Second, we construct the database according to the relation schema. Third, we construct the website.</p>
+The main component of the project is in the document flaskProject. The sql program firm.sql will construct the database and the python program app.py will construct the website. Besides, the sql program data_generation.sql can insert random data into the database.</p>
+### ER diagram
    ![the ER diagram](ER_graph.png)
 ### Relation Schema
 Consumer (<u>consumer_id</u>, supplier{plant_id}, phone_number, address, name)</p>
