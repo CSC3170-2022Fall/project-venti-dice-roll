@@ -43,9 +43,11 @@ Our group is going to choose these functionalities:
 
 Our group gonna pick additional ones as follow:
 - Geometrical Constraint
-## Database ER diagram
+## Program Design
+
+### Database ER diagram
    ![the ER diagram](ER_graph.png)
-## Relation Schema
+### Relation Schema
 Consumer (<u>consumer_id</u>, supplier{plant_id}, phone_number, address, name)</p>
 Package (<u>package_id</u>, consumer_id, budget, overall_time)</p>
 Plant (<u>plant_id</u>, location_id)</p>
@@ -58,3 +60,15 @@ Processing_record (<u>machine_id</u>, <u>operation_id</u>， start_time, end_tim
 Operation_type (<u>operation_type_id</u>)</p>
 Location (<u>location_id</u>, …….)</p>
 Produce_order (<u>order_number</u>, <u>perdency_operation_id</u>, <u>operation_type_id</u>)</p>
+## Historical Progress
+## Functionality Implementation
+### Database
+### Website
+## Contribution
+
+Jose Andreas: </p>
+Xu Zijie: </p>
+Zhao Qichen: </p>
+Wang Yue: </p>
+Yang Rui: </p>
+Chen Yanxi: </p>
