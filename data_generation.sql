@@ -30,7 +30,7 @@ VALUES (1, 'AAA'),
         (9, 'III'),
         (10, 'JJJ');
 
-INSERT INTO consumer (CONSUMER_ID, PHONENUM, USERNAME, LOCATION_ID)
+INSERT INTO consumer (CONSUMER_ID, PHONENUM, USERNAME, LOCATION)
 VALUES (1, '123-456-7890', 'John Smith', 'AAA'),
         (2, '234-567-8901', 'Jane Smith', 'BBB'),
         (3, '345-678-9012', 'Bob Smith', 'CCC'),
