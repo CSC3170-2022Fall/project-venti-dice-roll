@@ -65,10 +65,9 @@ Produce_order (<u>order_number</u>, <u>perdency_operation_id</u>, <u>operation_t
 ### Database
 ### Website
 ## Contribution
-
-Jose Andreas: </p>
-Xu Zijie: </p>
-Zhao Qichen: </p>
-Wang Yue: </p>
-Yang Rui: </p>
-Chen Yanxi: </p>
+1. ER Diagram and Relation Schema: Wang Yue and Xu Zijie
+2. Database: Chen Yanxi and Jose Andreas
+3. Generate Random data: Zhao Qichen
+4. Website: Wang Yue and Xu Zijie
+5. Report: Wang Yue and Xu Zijie(the website part), Yang Rui(other part and integration)
+6. Presentation: Zhao Qichen, Chen Yanxi and Jose Andreas
