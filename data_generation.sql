@@ -1,52 +1,58 @@
-use firm
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+USE firm;
+
+-- --------------------------------------------------------
 
 INSERT INTO locations (LOCATION_ID, LOCATION_X, LOCATION_Y)
-VALUES ('A', 5, 5),
-        ('B', 15, 5),
-        ('C', 5, 15),
-        ('D', 15, 15),
-        ('E', 8, 2),
-        ('F', 12, 2),
-        ('G', 8, 18),
-        ('H', 12, 18),
-        ('I', 3, 10),
-        ('J', 17, 10);
+VALUES ('AAA', 5, 5),
+        ('BBB', 15, 5),
+        ('CCC', 5, 15),
+        ('DDD', 15, 15),
+        ('EEE', 8, 2),
+        ('FFF', 12, 2),
+        ('GGG', 8, 18),
+        ('HHH', 12, 18),
+        ('III', 3, 10),
+        ('JJJ', 17, 10);
 
 INSERT INTO plant (PLANT_ID, LOCATION_ID)
-VALUES (1, 'A'),
-        (2, 'B'),
-        (3, 'C'),
-        (4, 'D'),
-        (5, 'E'),
-        (6, 'F'),
-        (7, 'G'),
-        (8, 'H'),
-        (9, 'I'),
-        (10, 'J');
+VALUES (1, 'AAA'),
+        (2, 'BBB'),
+        (3, 'CCC'),
+        (4, 'DDD'),
+        (5, 'EEE'),
+        (6, 'FFF'),
+        (7, 'GGG'),
+        (8, 'HHH'),
+        (9, 'III'),
+        (10, 'JJJ');
 
-INSERT INTO consumer (CONSUMER_ID, PLANT_ID, PHONE_NUMBER, ADDRESS, NAME, LOCATION_ID)
-VALUES (1, 1, '123-456-7890', '123 Main Street', 'John Smith', 'A'),
-        (2, 2, '234-567-8901', '456 Main Street', 'Jane Smith', 'B'),
-        (3, 3, '345-678-9012', '789 Main Street', 'Bob Smith', 'C'),
-        (4, 4, '456-789-0123', '321 Main Street', 'Alice Smith', 'D'),
-        (5, 5, '567-890-1234', '654 Main Street', 'Mike Smith', 'E'),
-        (6, 6, '678-901-2345', '987 Main Street', 'Sara Smith', 'F'),
-        (7, 7, '789-012-3456', '246 Main Street', 'Tom Smith', 'G'),
-        (8, 8, '890-123-4567', '369 Main Street', 'Jessica Smith', 'H'),
-        (9, 9, '901-234-5678', '159 Main Street', 'Bill Smith', 'I'),
-        (10, 10, '012-345-6789', '753 Main Street', 'Kim Smith', 'J');
+INSERT INTO consumer (CONSUMER_ID, PHONENUM, USERNAME, LOCATION_ID)
+VALUES (1, '123-456-7890', 'John Smith', 'AAA'),
+        (2, '234-567-8901', 'Jane Smith', 'BBB'),
+        (3, '345-678-9012', 'Bob Smith', 'CCC'),
+        (4, '456-789-0123', 'Alice Smith', 'DDD'),
+        (5, '567-890-1234', 'Mike Smith', 'EEE'),
+        (6, '678-901-2345', 'Sara Smith', 'FFF'),
+        (7, '789-012-3456', 'Tom Smith', 'GGG'),
+        (8, '890-123-4567', 'Jessica Smith', 'HHH'),
+        (9, '901-234-5678', 'Bill Smith', 'III'),
+        (10, '012-345-6789', 'Kim Smith', 'JJJ');
 
-INSERT INTO package (PACKAGE_ID, CONSUMER_ID, BUDGET, OVERALL_TIME)
-VALUES (1, 1, 100, '3 days'),
-        (2, 2, 200, '5 days'),
-        (3, 3, 300, '7 days'),
-        (4, 4, 400, '10 days'),
-        (5, 5, 500, '14 days'),
-        (6, 6, 600, '21 days'),
-        (7, 7, 700, '30 days'),
-        (8, 8, 800, '45 days'),
-        (9, 9, 900, '60 days'),
-        (10, 10, 1000, '90 days');
+INSERT INTO package (PACKAGE_ID, CONSUMER_ID, A1_NUM, A1_PLANT, B2_NUM, B2_PLANT, C3_NUM, C3_PLANT)
+VALUES (1, 1, 100, 'A111', 100, 'B222', 100, 'C333'),
+        (2, 2, 200, 'A111', 200, 'B222', 200, 'C333'),
+        (3, 3, 300, 'A111', 300, 'B222', 300, 'C333'),
+        (4, 4, 400, 'A111', 400, 'B222', 400, 'C333'),
+        (5, 5, 500, 'A111', 500, 'B222', 500, 'C333'),
+        (6, 6, 600, 'A111', 600, 'B222', 600, 'C333'),
+        (7, 7, 700, 'A111', 700, 'B222', 700, 'C333'),
+        (8, 8, 800, 'A111', 800, 'B222', 800, 'C333'),
+        (9, 9, 900, 'A111', 900, 'B222', 900, 'C333'),
+        (10, 10, 1000, 'A111', 1000, 'B222', 1000, 'C333');
 
 INSERT INTO operation_type (OPERATION_TYPE_ID)
 VALUES (1),
@@ -144,3 +150,8 @@ VALUES (1, 1, 1),
         (8, 8, 8),
         (9, 9, 1),
         (10, 10, 2);
+-- --------------------------------------------------------
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

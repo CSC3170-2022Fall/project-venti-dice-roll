@@ -42,8 +42,9 @@ create table consumer(
     CONSUMER_ID INT NOT NULL AUTO_INCREMENT,
     PHONENUM varchar(30) not null,
     USERNAME varchar(30) not null,
-    LOCATION varchar(30),
-    primary key(CONSUMER_ID)
+    LOCATION_ID varchar(30),
+    primary key(CONSUMER_ID),
+    foreign key(LOCATION_ID) references locations(LOCATION_ID)
 );
 
 -- -----------------------------------------------------
