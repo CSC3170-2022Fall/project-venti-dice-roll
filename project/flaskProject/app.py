@@ -4,6 +4,10 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+@app.route('/',methods = ['GET'])
+def index_get():
+    return render_template("index.html")
+
 
 @app.route('/', methods=['POST'])
 def index():
@@ -11,7 +15,7 @@ def index():
     HOST = 'localhost'
     PORT = 3306
     USER = 'root'
-    PASSWORD = 'root'
+    PASSWORD = 'P@ss0818'
     DB = 'firm'
     db = pymysql.connect(host=HOST, user=USER, port=PORT, password=PASSWORD, database=DB)
 
