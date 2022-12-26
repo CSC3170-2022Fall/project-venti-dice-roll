@@ -80,6 +80,8 @@ This website is for consumers to buy chips. It can be composed to 2 parts. The f
 #### Function Implementation:
 1. We use the function addeventlistener() to check if the address has changed. Once the address is changed, the program will ask for the value of new address and push names of nearby companies into value_list. Every value in the list will be imported to different options then append to each company select lists.
 2. Code part: App.py: This code imports pymysql and flask to realize its function. It contains a function called index. This function is used to connect with index.html and chip.html. This function first connects the local database(firm), then uses post to get the data from index.html. This code is running on http://127.0.0.1:5000. To connect with this code, we use the form function and let its action equals http://127.0.0.1:5000 in the index.html file. Then, it uses pymysql to store data in the table. When the function finish, return chip.html.
+## How to Run
+first，run firm.sql file on your sql. Then open app.py file use pycharm，change USER and PASSWORD into your sql name and password. Then run the app.py. After that open index.html, run it on your web browser. Filled the data according to the instructions. 
 ## Contribution
 1. ER Diagram and Relation Schema: Wang Yue and Xu Zijie
 2. Database: Chen Yanxi and Jose Andreas
