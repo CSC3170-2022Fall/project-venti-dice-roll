@@ -4,8 +4,6 @@ window.onload = function () {
     var companys = document.querySelectorAll('select[name=company]')
 
 
-    
-
     //选取地址后给公司列表添加option
     address.addEventListener('change', appendCompany)
     
@@ -47,7 +45,8 @@ window.onload = function () {
         }
     }
 
-
-    
+    // Adds a default choice
+    address.dispatchEvent(new Event('AAA'))
+    appendCompany()
     
 }
