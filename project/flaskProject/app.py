@@ -4,10 +4,6 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# @app.route('/',methods = ['GET'])
-# def index_get():
-#     return render_template("index.html")
-
 
 @app.route('/', methods=['POST'])
 def index():
@@ -15,7 +11,7 @@ def index():
     HOST = 'localhost'
     PORT = 3306
     USER = 'root'
-    PASSWORD = 'root'# your database password
+    PASSWORD = 'root'
     DB = 'firm'
     db = pymysql.connect(host=HOST, user=USER, port=PORT, password=PASSWORD, database=DB)
 
@@ -23,14 +19,14 @@ def index():
     user_name = str(request.form['username'])
     phone_num = str(request.form['phonenum'])
     address = str(request.form['address'])
-    company_a1 = str(request.form['company'])
-    #company_a1 = str(request.form['company_a1'])  # 这个地方因为我还不是很会改html，你再看看
+    company_a1 = 'aaaa'
+    # company_a1 = str(request.form['company_a1'])  # 这个地方因为我还不是很会改html，你再看看
     chip_num_a1 = str(request.form['chip_num_a1'])
-    #company_b2 = 'bbbb'
-    company_b2 = str(request.form['company'])
+    company_b2 = 'bbbb'
+    #company_b2 = str(request.form['company_b2'])
     chip_num_b2 = str(request.form['chip_num_b2'])
-    #company_c3 = 'cccc'
-    company_c3 = str(request.form['company'])
+    company_c3 = 'cccc'
+    #company_c3 = str(request.form['company_c3'])
     chip_num_c3 = str(request.form['chip_num_c3'])
 
     # sql的运用
