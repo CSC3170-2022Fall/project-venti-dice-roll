@@ -15,7 +15,7 @@ def index():
     HOST = 'localhost'
     PORT = 3306
     USER = 'root'
-    PASSWORD = 'P@ss0818'
+    PASSWORD = 'root'# your database password
     DB = 'firm'
     db = pymysql.connect(host=HOST, user=USER, port=PORT, password=PASSWORD, database=DB)
 
