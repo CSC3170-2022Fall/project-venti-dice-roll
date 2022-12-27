@@ -52,7 +52,12 @@ window.onload = function () {
             
             
           }
+        
     }
+
+    // Added a default location
+    address.dispatchEvent(new Event('AAA'))
+    appendCompany()
 
     // btn_add.addEventListener('click', function () {
     //     Chip_order.innerHTML=Chip_order.innerHTML + chip.innerHTML
@@ -68,6 +73,5 @@ window.onload = function () {
     //     console.log('success')
     // }
 
-    
     
 }
