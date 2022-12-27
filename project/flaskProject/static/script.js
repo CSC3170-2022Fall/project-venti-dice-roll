@@ -1,25 +1,6 @@
 window.onload = function () {
-    // var btn_add = document.getElementById("btn_add");
-    // var chip = document.getElementById("chip");
-    // var Chip_order = document.getElementById("Chip_order");
     var address = document.getElementById('address')
     var companys = document.querySelectorAll('select[name=company]')
-
-
-    // const consumer_inf = document.getElementById('form_consumer');
-    // consumer_inf.addEventListener('confirm', submit_consumer);
-
-    // function submit_consumer(e) {
-    //     console.log(e)
-    //     e.preventDefault()
-    //     getCompany()
-    //     return false
-    // }
-
-    // //如何得到公司名称？
-    // function getCompany() {
-    //     console.log('get it')
-    // }
 
     //选取地址后给公司列表添加option
     address.addEventListener('change', appendCompany)
@@ -41,6 +22,7 @@ window.onload = function () {
             value_list.push('ooooooooooooooooo')
             value_list.push('龙岗大学')
         }
+
         //先删除原有的选项
         for (let i = 0; i < companys.length; i++) {
             companys[i].innerHTML = 0
@@ -58,20 +40,5 @@ window.onload = function () {
     // Added a default location
     address.dispatchEvent(new Event('AAA'))
     appendCompany()
-
-    // btn_add.addEventListener('click', function () {
-    //     Chip_order.innerHTML=Chip_order.innerHTML + chip.innerHTML
-    //     console.log(1)
-    //     address.setAttribute('disabled', 'disabled')//添加芯片后禁止修改地址
-
-    // })
-
-
-
-    // //submit执行的函数
-    // function fnClose() {
-    //     console.log('success')
-    // }
-
     
 }
