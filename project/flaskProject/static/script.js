@@ -37,8 +37,6 @@ window.onload = function () {
         
     }
 
-    // Added a default location
-    address.dispatchEvent(new Event('AAA'))
-    appendCompany()
+    
     
 }
