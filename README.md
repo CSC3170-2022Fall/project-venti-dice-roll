@@ -12,7 +12,7 @@ This is our implementation for the course project of CSC3170, 2022 Fall, CUHK(SZ
 
 ## Video Link & Slides
 Check Video Here: https://www.bilibili.com/video/BV1GJ411x7h7 
-[The Presentation Slide](CSC3170Slides.pdf)
+The Presentation Slide: [CSC3170Slides.pdf](CSC3170Slides.pdf)
 
 ## Team Members
 
